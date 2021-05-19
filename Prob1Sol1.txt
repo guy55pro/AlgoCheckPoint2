@@ -1,0 +1,41 @@
+.VAR
+    
+    hashtab : HASH_TABLE<INTEGER,INTEGER>;
+    Set1 Array := {3, 1, 7, 9};
+    Set2 Array := {2, 4, 1, 9, 3};
+    i,j : Integer :=0
+
+.BEGIN
+
+    FOR i FROM 0 TO setOne.length-1 
+	STEP 1  DO 
+    int element := setOne[i];
+            if(hashtab.containsKey(element)) {
+                int count := hashtab.get(element);
+                hashtab.insert(element, count+1);
+            }else
+                hashtab.insert(element, 1);
+	END_IF
+    END_FOR
+    
+    FOR i FROM 0 TO setTwo.length-1 STEP 1  DO
+        int element := setTwo[i];
+            if(hashtab.containsKey(element)) {
+                int count := hashtab.get(element);
+                hashtab.insert(element, count+1);
+            }else
+                hashtab.insert(element, 1);
+	END_IF
+    END_FOR
+
+    sum:INTEGER := 0;
+    Set<Integer> set := hashtab.keySet(); 
+    Iterator<Integer> iterator := set.iterator();
+    WHILE (iterator.hasNext()) DO
+            int key := iterator.next();
+            if(hashtab.get(key)==1)
+                sum += key;
+    END_WHILE
+
+        Print("Distinct Elements Sum : " , sum);
+END

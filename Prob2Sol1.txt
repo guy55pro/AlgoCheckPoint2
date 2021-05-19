@@ -1,0 +1,21 @@
+  
+.VAR
+   i,j,sum :INTEGER := 0;
+   arr1 :Array := [10, 12, 16, 5];
+   arr2 :Array  := [13, 12, 14, 6];
+
+.BEGIN
+
+FOR i FROM 0 TO arr1.length-1 
+     STEP 1  DO
+     j = 0;
+     WHILE (j<arr2.length-1) DO
+          if (arr1[i] == arr2[j]){   
+            sum += arr1[i] + arr2[j];}
+
+	END_WHILE 
+END_FOR
+  
+ print("Sum of duplicated Element",sum)
+
+END
